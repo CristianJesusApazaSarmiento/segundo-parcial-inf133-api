@@ -67,8 +67,9 @@ def create_user():
 
     if not name or not email or not password or not roles:
         return jsonify({"error": "Faltan datos requeridos"}), 400
-
-    user = User(name=name, password=password, roles=roles)
+    
+    
+    user = User(name=name, email=email, password=password, roles=roles)
     user.save()
 
     return jsonify(render_user_detail(user)), 201
