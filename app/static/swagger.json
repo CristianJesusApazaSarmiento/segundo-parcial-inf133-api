@@ -5,7 +5,7 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/taks": {
+        "/api/tareas": {
             "get": {
                 "summary": "Obtiene la lista de todas las tareas",
                 "security": [
@@ -21,7 +21,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/Task"
+                                        "$ref": "#/components/schemas/Tarea"
                                     }
                                 }
                             }
@@ -40,7 +40,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Task"
+                                "$ref": "#/components/schemas/Tarea"
                             }
                         }
                     }
@@ -51,7 +51,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Task"
+                                    "$ref": "#/components/schemas/Tarea"
                                 }
                             }
                         }
@@ -59,7 +59,7 @@
                 }
             }
         },
-        "/api/taks/{id}": {
+        "/api/tareas/{id}": {
             "get": {
                 "summary": "Obtiene una tarea específico por su ID",
                 "security": [
@@ -83,7 +83,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Task"
+                                    "$ref": "#/components/schemas/Tarea"
                                 }
                             }
                         }
@@ -114,7 +114,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Task"
+                                "$ref": "#/components/schemas/Tarea"
                             }
                         }
                     }
@@ -125,7 +125,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Task"
+                                    "$ref": "#/components/schemas/Tarea"
                                 }
                             }
                         }
@@ -229,7 +229,7 @@
             }
         },
         "schemas": {
-            "Task": {
+            "Tarea": {
                 "type": "object",
                 "properties": {
                     "id": {
@@ -242,21 +242,22 @@
                     "description": {
                         "type": "string"
                     },
-                    "created_at": {
+                    "status": {
                         "type": "string"
                     },
-                    "age": {
-                        "type": "integer"
+                    "created_at": {
+                        "type": "string"
                     },
                     "assigned_to": {
                         "type": "string"
                     }
                 },
                 "required": [
+                    "id",
                     "title",
                     "description",
+                    "status",
                     "created_at",
-                    "age",
                     "assigned_to"
                 ]
             },
@@ -272,11 +273,12 @@
                     "password": {
                         "type": "string"
                     },
-                    "role": {
+                    "roles": {
                         "type": "string"
                     }
                 },
                 "required": [
+                    "id",
                     "name",
                     "email",
                     "password",
